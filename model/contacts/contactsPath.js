@@ -1,5 +1,5 @@
 const path = require("path");
 
-const contactsPath = path.resolve("operations/contacts.json");
+const contactsPath = path.resolve("db/contacts.json");
 
 module.exports = contactsPath;

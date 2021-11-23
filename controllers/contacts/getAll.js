@@ -1,4 +1,4 @@
-const contactsOperation = require("../../operations");
+const contactsOperation = require("../../model");
 
 const getAll = async (req, res) => {
   const contacts = await contactsOperation.listContacts();
