@@ -1,6 +1,6 @@
-const validation = (scheme) => {
+const validation = (schema) => {
   return (req, res, next) => {
-    const { error } = scheme.validate(req.body);
+    const { error } = schema.validate(req.body);
     if (error) {
       error.status = 400;
       next(error);
