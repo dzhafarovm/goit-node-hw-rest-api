@@ -11,9 +11,11 @@ const updateFavorite = async (req, res) => {
     { favorite },
     { new: true }
   );
+
   if (!result) {
     throw new NotFound(`Contact with id='${contactId}' not found`);
   }
+
   res.json({
     status: "success",
     code: 200,
