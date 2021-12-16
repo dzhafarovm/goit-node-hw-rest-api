@@ -11,13 +11,17 @@ const signin = async (req, res) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    throw new Unauthorized("Email or password is wrong");
+    throw new Unauthorized("Email or password is wrong or not verify");
+  }
+
+  if (!user.verify) {
+    throw new Unauthorized("Email or password is wrong or not verify");
   }
 
   const passwordCompare = bcrypt.compareSync(password, user.password);
 
   if (!passwordCompare) {
-    throw new Unauthorized("Email or password is wrong");
+    throw new Unauthorized("Email or password is wrong or not verify");
   }
 
   const payload = { id: user._id };
