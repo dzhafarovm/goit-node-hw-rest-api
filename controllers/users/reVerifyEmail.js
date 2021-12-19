@@ -1,6 +1,9 @@
-const { User } = require("../../models");
+const { NotFound } = require("http-errors");
 
-const reVerifyEmail = (req, res) => {
+const { User } = require("../../models");
+const { sendEmail } = require("../../helpers");
+
+const reVerifyEmail = async (req, res) => {
   const { email } = req.body;
 
   const user = await User.findOne({ email });
