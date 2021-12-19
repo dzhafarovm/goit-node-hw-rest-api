@@ -48,10 +48,15 @@ const joiLoginSchema = Joi.object({
   email: Joi.string().email().required(),
 });
 
+const joiVerifySchema = Joi.object({
+  email: Joi.string().email().required(),
+});
+
 const User = model("user", userSchema);
 
 module.exports = {
   User,
   joiRegisterSchema,
   joiLoginSchema,
+  joiVerifySchema,
 };
